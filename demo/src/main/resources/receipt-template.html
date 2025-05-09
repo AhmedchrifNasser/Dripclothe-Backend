@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        .logo{
+            font-family: "Montserrat", sans-serif;
+            color: white;
+            width: 260px;
+            margin-left: 5%;
+            margin-top: 3%;
+            padding: 16px;
+            margin: 5px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 50px;
+            background: linear-gradient(135deg, #590b74 35%, #298096 100%);
+        }
+        .receipt-header {
+            width: 100%;
+            font-family: "Montserrat", sans-serif;
+            margin-top: 5%;
+        }
+
+        .receipt-header h2 {
+            font-weight: 480;
+            font-size: 20px;
+            margin-left: 6%;
+        }
+
+        .receipt-header h3 {
+            font-weight: 400;
+            font-size: 20px;
+            margin-left: 10%;
+        }
+
+        .receipt-total{
+            font-weight: 400;
+            font-size: 17px;
+            margin-left: 6%;
+            margin-top: 5%;
+        }
+
+    </style>
+</head>
+<body>
+<div style="display: flex;justify-content: center;">
+    <img width="290" height="85" style="margin-top: 2%;margin-left: 5%" src="static/DripClothe-logo.png"/>
+</div>
+<div class="receipt-header">
+    <h2>
+        Customer details
+    </h2>
+    <h3 th:text="${order.customer.getLastName()} + ' ' + ${order.customer.getFirstName()}"></h3>
+    <h3 th:text="${order.customer.getEmail()}"></h3>
+    <h3 th:text="${order.getShippingAddress().getStreet()}"></h3>
+    <h3 style="margin-top: 2px" th:text="${order.getShippingAddress().getZipCode()} + ' ' + ${order.getShippingAddress().getCity()} + ', ' + ${order.getShippingAddress().getCountry()}"></h3>
+</div>
+
+<!--<div class="receipt-header" th:each="productQuantity: ${productQuantities}">-->
+<h2>Products :</h2>
+<div class="receipt-header" th:each="orderItem: ${order.getOrderItems()}">
+    <!--<h3 th:text="'Name : ' + ${productQuantity.product.getName()}"></h3>
+    <h3 th:text="'Color : ' + ${productQuantity.product.getColors().iterator().next().getName()}"></h3>
+    <h3 th:text="'Size : ' + ${productQuantity.product.getSizes().iterator().next().getName()}"></h3>
+    <h3 th:text="'Quantity : ' + ${productQuantity.quantity}"></h3>
+    <h3 th:text="'Price : ' + ${productQuantity.product.getPrice()} + '$'"></h3>-->
+    <h3 th:text="'Name : ' + ${orderItem.getProductName()}"></h3>
+    <h3 th:text="'Color : ' + ${orderItem.getColor()}"></h3>
+    <h3 th:text="'Size : ' + ${orderItem.getSize()}"></h3>
+    <h3 th:text="'Quantity : ' + ${orderItem.getQuantity}"></h3>
+    <h3 th:text="'Price : ' + ${orderItem.getPrice()} + '$'"></h3>
+</div>
+
+<div class="receipt-total">
+    <h2 th:text="'Search and service fees : 2.0$'"></h2>
+    <h2 style="margin-top: 5%" th:text="'Shipping fees : ' + ${order.getOrder().getShippingFee()} + '$'"></h2>
+    <h2 style="margin-top: 5%" th:text="'Total paid : ' + ${order.getOrder().getTotalPrice()} + '$'"></h2>
+</div>
+
+<div class="receipt-header">
+    <h3 style="margin-left: 6%;margin-top: 10%" th:text="'Created on ' + ${#calendars.format(#calendars.createNow(), 'MM/dd/yyyy')}"></h3>
+    <h3 style="margin-left: 6%;margin-top: 10%">
+        &copy; 2024 DripClothe. All rights reserved.
+    </h3>
+</div>
+</body>
+</html>

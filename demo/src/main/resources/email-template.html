@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-family: "Montserrat", sans-serif;
+            line-height: 24px;
+
+        }
+
+        .logo-nav {
+            color: white;
+            background-color: #24252A;
+            padding: 1rem 0;
+            height: 60px;
+        }
+
+        .logo {
+
+            width: 130px;
+            padding: 10px 7px 5px 5px;
+            margin: 5px;
+            font-weight: 600;
+            font-size: 22px;
+            text-align: center;
+            margin-left: 44%;
+            background: linear-gradient(
+                    135deg, #753370 0%, #298096 100%);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .text {
+            margin-top: 3rem;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Diwali Greeting</title>
+</head>
+<body style="width: 70%">
+<div class="logo-nav">
+    <section class="logo">
+        <span>DripClothe</span>
+    </section>
+</div>
+<h1 style="margin-left: 15%; margin-top: 3rem">
+    Your order confirmation
+</h1>
+
+<div class="text">
+    <p>Hello ${order.customer.getLastName()}. ${order.customer.getFirstName()}</p>
+    <p>On behalf of DripClothe Team, we thank you for shopping from DripClothe !</p>
+    <p>Your order submitted successfully, we are preparing it to send it to you in real time, we will keep you updated about the track of your purchase.</p>
+</div>
+<h3 style="margin-top: 2rem;margin-left: 1rem">Summary of your order:</h3>
+<table style="margin-top: 2rem;width: 100%">
+    <tr>
+        <td style="vertical-align:top;">jacket</td>
+        <td>
+            <ul>
+                <li>
+                    Color: XL
+                </li>
+                <li>
+                    Size : khaki
+                </li>
+                <li>
+                    Quantity: 1
+                </li>
+            </ul>
+        </td>
+        <td style="vertical-align:top;">60,5$</td>
+    </tr>
+
+</table>
+
+<table style="margin-top: 4rem;width: 100%">
+    <tr>
+        <td width="26%"></td>
+        <td width="42%">
+            <ul>
+                <li>
+                    shipping fee
+                </li>
+                <li>
+                    Total paid
+                </li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>
+                    14
+                </li>
+                <li>
+                    75,49
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<p style="margin-top: 4rem">Best regards,</p>
+<p>DripClothe</p>
+</body>
+</html>
